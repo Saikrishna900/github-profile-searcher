@@ -22,9 +22,11 @@ async function getRepos(username){
 
         addReposToCard(data);
     }catch(error){
+        if(err.response.status==404){
         createErrorCard('Problem in fetching the repository')
     }
     }
+}
 function createUserCard(user){
     const cardHTML = `
     <div class="card">
@@ -51,7 +53,7 @@ function createErrorCard(msg){
     <div class="card">
     <h1>${msg}</h1>
     </div>`
-    main.innerHTML = cardHTML
+    main.innerHTML = cardHTML;
 }
 function addReposToCard(repos){
     const reposEl = document.getElementById("repos");
@@ -62,7 +64,7 @@ function addReposToCard(repos){
         repoEL.target="_blank";
         repoEL.innerText = repo.name;
         reposEl.appendChild(reposEl);
-    })
+    });
 }
 form.addEventListener('submit',(e)=> {
     e.preventDefault();
