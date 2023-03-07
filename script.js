@@ -34,17 +34,25 @@ function createUserCard(user){
         <img src="${user.avatar_url}" alt="${user.name}" class="avatar">
     </div>
     <div class="user-info">
-        <h2>${user.name}</h2>
-        <p>${user.bio}</p>
-        <ul>
-            <li>${user.followers} <b>Followers</b></li>
-            <li>${user.following}<b>Following</b></li>
-            <li>${user.public_repos}<b>Respositories</b></li>
-        </ul>
-        <div id="repos">
-           
-        </div>
-    </div>
+  <h2>${user.name}</h2>
+  <p>${user.bio}</p>
+  <ul>
+    <li>
+      <b>Followers</b>
+      <span>${user.followers}</span>
+    </li>
+    <li>
+      <b>Following</b>
+      <span>${user.following}</span>
+    </li>
+    <li>
+      <b>Repositories</b>
+      <span>${user.public_repos}</span>
+    </li>
+  </ul>
+  <div id="repos"></div>
+</div>
+
 </div>`
 main.innerHTML = cardHTML;
 }
